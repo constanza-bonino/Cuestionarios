@@ -1,3 +1,105 @@
 {
-    
+    "cuestionarios": [
+        {
+            "id": "1",
+            "nombre": "Favoritos",
+            "descripcion": "cuentanos lo que prefieres"
+        },
+        {
+            "id": "2",
+            "nombre": "Películas",
+            "descripcion": "preguntas variadas de las películas más conocidas"
+        },
+        {
+            "id": "3",
+            "nombre": "Disney",
+            "descripcion": "desmuestra cuanto sabes sobre Disney"
+        }
+    ],
+    "preguntas": [
+        {
+            "id": "1",
+            "nombre": "Favoritos",
+            "preguntas": [
+                {
+                    "id": "1",
+                    "titulo": "Helados"
+                },
+                {
+                    "id": "2",
+                    "titulo": "Películas"
+                },
+                {
+                    "id": "3",
+                    "titulo": "Libros"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "nombre": "Películas",
+            "preguntas": [
+                {
+                    "id": "1",
+                    "titulo": "Última que viste"
+                },
+                {
+                    "id": "2",
+                    "titulo": "Favoríta"
+                },
+                {
+                    "id": "3",
+                    "titulo": "Menos favorita"
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "nombre": "Disney",
+            "preguntas": [
+                {
+                    "id": "1",
+                    "titulo": "Personaje favorito"
+                },
+                {
+                    "id": "2",
+                    "titulo": "Pelicula favorita"
+                },
+                {
+                    "id": "3",
+                    "titulo": "Primeros recuerdos"
+                }
+            ]
+        }
+    ],
+    "detallePregunta": [
+        {
+            "id": "1",
+            "nombre": "Favoritos",
+            "preguntas": [
+                {
+                    "id": "1",
+                    "titulo": "Helados",
+                    "tipo": "MO",
+                    "opciones": {
+                        "opcion1": "Chocolate",
+                        "opcion2": "Frutilla",
+                        "opcion3":  "Vainilla"
+                    }
+                },
+                {
+                    "id": "2",
+                    "titulo": "Películas",
+                    "tipo": "Texto",
+                    "descripcion":"Nombre y razones para ser tu película favorita"
+                },
+                {
+                    "id": "3",
+                    "titulo": "Libros",
+                    "tipo": "Texto",
+                    "descripcion":"Nombre y razones para ser tu libro favorito"
+                }
+            ]
+        }
+    ]
 }

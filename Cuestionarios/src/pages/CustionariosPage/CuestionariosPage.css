@@ -1,0 +1,17 @@
+.cuestionarios {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+a {
+color: palevioletred;
+}
+
+a:hover {
+    color: rgb(175, 45, 120);
+}
+
+.titulo {
+    text-decoration: underline;
+}

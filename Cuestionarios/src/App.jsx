@@ -1,5 +1,11 @@
 
 import './App.css'
+import { useState } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import LoginPage from "./pages/LoginPage/LoginPage.jsx"
+import CuestionariosPage from "./pages/CustionariosPage/CuestionariosPage.jsx"
+import ListaPreguntasPage from "./pages/ListaPreguntasPage/ListaPreguntasPage.jsx"
+import PreguntaPage from "./pages/PreguntaPage/PreguntaPage.jsx"
 
 function App() {
 
@@ -10,13 +16,9 @@ function App() {
     <Routes>
       <Route path="/*" element={<Navigate replace to="/login" />} />
       <Route path="/login" element={<LoginPage nuevoUsuario={setUsuario} />} />
-      {usuario !== null && (
-        < >
-          <Route path="/cuestionarios" element={<CuestionariosPage />} />
-          <Route path="/cuestionarios/id.cuestionario" element={<ListaPreguntasPage />} />
-          <Route path="/cuestionarios/:idCuestionario/:idPregunta" element={<PreguntaPage />} />
-        </>
-      )}
+      {usuario !== null && <><Route path="/cuestionarios" element={<CuestionariosPage />} />
+      <Route path="/cuestionarios/:idCuestionario" element={<ListaPreguntasPage />} />
+      <Route path="/cuestionarios/:idCuestionario/:idPregunta" element={<PreguntaPage />} /> </>}
     </Routes>
   );
 }
