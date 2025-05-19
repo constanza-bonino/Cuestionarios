@@ -1,105 +1,107 @@
 {
     "cuestionarios": [
         {
-            "id": "1",
+            "id": "CUE-1",
             "nombre": "Favoritos",
             "descripcion": "cuentanos lo que prefieres"
         },
         {
-            "id": "2",
+            "id": "CUE-2",
             "nombre": "Películas",
             "descripcion": "preguntas variadas de las películas más conocidas"
         },
         {
-            "id": "3",
+            "id": "CUE-3",
             "nombre": "Disney",
             "descripcion": "desmuestra cuanto sabes sobre Disney"
         }
     ],
     "preguntas": [
         {
-            "id": "1",
-            "nombre": "Favoritos",
-            "preguntas": [
-                {
-                    "id": "1",
-                    "titulo": "Helados"
-                },
-                {
-                    "id": "2",
-                    "titulo": "Películas"
-                },
-                {
-                    "id": "3",
-                    "titulo": "Libros"
-                }
-            ]
+            "id": "PRE-1",
+            "id_cuestionario": "CUE-1",
+            "opciones": ["Choco", "Vaini", "dad"],
+            "nombre": "Helados favoritos?"
         },
         {
-            "id": "2",
-            "nombre": "Películas",
-            "preguntas": [
-                {
-                    "id": "1",
-                    "titulo": "Última que viste"
-                },
-                {
-                    "id": "2",
-                    "titulo": "Favoríta"
-                },
-                {
-                    "id": "3",
-                    "titulo": "Menos favorita"
-                }
-            ]
+            "id": "PRE-2",
+            "id_cuestionario": "CUE-1",
+            "nombre": "Color favoritas?"
         },
         {
-            "id": "3",
-            "nombre": "Disney",
-            "preguntas": [
-                {
-                    "id": "1",
-                    "titulo": "Personaje favorito"
-                },
-                {
-                    "id": "2",
-                    "titulo": "Pelicula favorita"
-                },
-                {
-                    "id": "3",
-                    "titulo": "Primeros recuerdos"
-                }
-            ]
+            "id": "PRE-3",
+            "id_cuestionario": "CUE-1",
+            "nombre": "Deporte favoritos?"
+        },
+        {
+            "id": "PRE-4",
+            "id_cuestionario": "CUE-2",
+            "tipo": "texto",
+            "nombre": "Última que viste"
+        },
+        {
+            "id": "PRE-5",
+            "id_cuestionario": "CUE-2",
+            "tipo": "texto",
+            "nombre": "Favoríta"
+        },
+        {
+            "id": "PRE-6",
+            "id_cuestionario": "CUE-2",
+            "tipo": "texto",
+            "nombre": "Menos favorita"
+        },
+        {
+            "id": "PRE-7",
+            "id_cuestionario": "CUE-3",
+            "tipo": "texto",
+            "nombre": "Personaje favorito"
+        },
+        {
+            "id": "PRE-8",
+            "id_cuestionario": "CUE-3",
+            "tipo": "texto",
+            "nombre": "Pelicula favorita"
+        },
+        {
+            "id": "PRE-9",
+            "id_cuestionario": "CUE-3",
+            "tipo": "texto",
+            "nombre": "Primeros recuerdos"
         }
     ],
-    "detallePregunta": [
+    "usuarios": [
         {
-            "id": "1",
-            "nombre": "Favoritos",
-            "preguntas": [
-                {
-                    "id": "1",
-                    "titulo": "Helados",
-                    "tipo": "MO",
-                    "opciones": {
-                        "opcion1": "Chocolate",
-                        "opcion2": "Frutilla",
-                        "opcion3":  "Vainilla"
-                    }
-                },
-                {
-                    "id": "2",
-                    "titulo": "Películas",
-                    "tipo": "Texto",
-                    "descripcion":"Nombre y razones para ser tu película favorita"
-                },
-                {
-                    "id": "3",
-                    "titulo": "Libros",
-                    "tipo": "Texto",
-                    "descripcion":"Nombre y razones para ser tu libro favorito"
-                }
-            ]
+            "id": "USR-1",
+            "nombre": "Juan"
+        },
+        {
+            "id": "USR-2",
+            "nombre": "Pedro"
+        },
+        {
+            "id": "USR-3",
+            "nombre": "Jose"
+        }
+    ],
+    "respuestas": [
+        {
+            "id": "RES-1",
+            "id_usuario": "USR-1",
+            "id_pregunta": "PRE-4",
+            "valor": "Up"
+        },
+        {
+            "id": "RES-2",
+            "id_usuario": "USR-2",
+            "id_pregunta": "PRE-4",
+            "valor": "Up"
+        },
+        {
+            "id": "RES-3",
+            "id_usuario": "USR-1",
+            "id_pregunta": "PRE-5",
+            "valor": "Up"
         }
     ]
 }

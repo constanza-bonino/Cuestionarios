@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import "./CuestionariosPage.css";
 
 function CuestionariosPage() {
-
     const [cuestionarios, setCuestionarios] = useState(null);
 
     useEffect(() => {
@@ -27,14 +26,20 @@ function CuestionariosPage() {
     console.log(cuestionarios);
 
     // We want to render the product details 👇
-    return (<div className="cuestionarios">
-        <h1>Cuestionarios</h1>
-        {
-            cuestionarios.map((cuestionario) => (
-                <Link key={"cuestionario" + cuestionario.id} to={`/cuestionarios/${cuestionario.id}`}> <span className="titulo">{cuestionario.nombre}</span>: {cuestionario.descripcion}</Link>
-            ))
-        }
-    </div>
+    return (
+        <div className="cuestionarios">
+            <h1>Cuestionarios</h1>
+            {cuestionarios.map((cuestionario) => (
+                <Link
+                    key={"cuestionario" + cuestionario.id}
+                    to={`/cuestionarios/${cuestionario.id}`}
+                >
+                    {" "}
+                    <span className="titulo">{cuestionario.nombre}</span>:{" "}
+                    {cuestionario.descripcion}
+                </Link>
+            ))}
+        </div>
     );
 }
 
