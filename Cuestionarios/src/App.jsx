@@ -1,6 +1,8 @@
 
 import './App.css'
-
+import LoginPage from'./pages/LoginPage/LoginPage.jsx'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import {useState} from 'react'
 function App() {
 
   const [usuario, setUsuario] = useState(null);
