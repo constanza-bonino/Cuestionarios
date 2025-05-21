@@ -50,6 +50,7 @@ function ListaPreguntasPage() {
                 <Link key={"c" + params.idCuestionario + "p" + pregunta.id} to={"/cuestionarios/" + params.idCuestionario + "/" + pregunta.id}> {pregunta.nombre} </Link>
             )})
         }
+        <Link to={"/cuestionarios/" + params.idCuestionario + "/crearPregunta"}> Crear nueva pregunta </Link>
     </div>
     );
 }
