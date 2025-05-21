@@ -65,11 +65,12 @@ function PreguntaPage() {
     }, [params.idCuestionario, params.idPregunta]);
 
     const cargarJson = async () => {
+        const fecha = getCurrentDateTime();
+        setLastUpdate(fecha);
         const userId = getCurrentUser().id;
-        setLastUpdate(getCurrentDateTime());
-        console.log(lastUpdate);
         if (respuestaAnt) {
             try {
+                console.log("tiempo", lastUpdate);
                 const res = await fetch(`http://localhost:3000/respuestas/${idResp}`, {
                     method: "PATCH",
                     headers: {
@@ -77,7 +78,7 @@ function PreguntaPage() {
                     },
                     body: JSON.stringify({
                         valor: respuesta,
-                        fechaHora: lastUpdate
+                        fechaHora: fecha
                     })
                 });
                 if (!res.ok) throw new Error("Error al agregar patch");
@@ -96,7 +97,7 @@ function PreguntaPage() {
                         id_usuario: userId,
                         id_pregunta: pregunta.id,
                         valor: respuesta,
-                        fechaHora: lastUpdate
+                        fechaHora: fecha
                     })
                 });
                 if (!res.ok) throw new Error("Error al agregar post");
