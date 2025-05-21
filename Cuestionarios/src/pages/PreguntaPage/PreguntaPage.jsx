@@ -3,31 +3,89 @@ import { useRef } from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./PreguntaPage.css";
+import { useUser } from "../../context/UserContext";
 
 function PreguntaPage() {
-
-    
-
     const params = useParams();
 
     const [pregunta, setPregunta] = useState(null);
-    const [respuesta, setRespuesta] = useState("");
+    const [respuesta, setRespuesta] = useState(null);
+    const [respuestaAnt, setRespuestaAnt] = useState(false);
+    const [idResp, setIdResp] = useState("");
+    const [lastUpdate, setLastUpdate] = useState("");
+    const { getCurrentUser } = useUser()
+    ;
+
+    function getCurrentDateTime() {
+        var currentdate = new Date();
+        var datetime = "Last Sync: " + currentdate.getDate() + "/"
+            + (currentdate.getMonth() + 1) + "/"
+            + currentdate.getFullYear() + "     "
+            + currentdate.getHours() + ":"
+            + currentdate.getMinutes() + ":"
+            + currentdate.getSeconds();
+        return datetime
+    }
 
     useEffect(() => {
         // Fetch the product details using async/await
         const fetchQs = async () => {
+            console.log(`http://localhost:3000/preguntas/${params.idPregunta}`);
             try {
-                const url = `http://localhost:3000/preguntas/${params.idPregunta}`;
-                const res = await fetch(url);
-                const data = await res.json();
-                console.log("pregunta", data);
-                setPregunta(data);
+                const urlQ = `http://localhost:3000/preguntas/${params.idPregunta}`;
+                const resQ = await fetch(urlQ);
+                const dataQ = await resQ.json();
+                setPregunta(dataQ);
             } catch (err) {
                 console.error("Failed to fetch:", err);
             }
         };
 
-        async function CargarJson() {
+
+        const userId = getCurrentUser().id;
+        console.log("user: ", userId);
+        const fetchAs = async () => {
+            try {
+                const urlA = `http://localhost:3000/respuestas/?id_usuario=${userId}&id_pregunta=${params.idPregunta}`;
+                const resA = await fetch(urlA);
+                const dataA = await resA.json();
+                if (dataA[0]) {
+                    setRespuestaAnt(true);
+                    setRespuesta(dataA[0].valor);
+                    setIdResp(dataA[0].id)
+                    setLastUpdate(dataA[0].fechaHora)
+                }
+            } catch (err) {
+                console.error("Failed to fetch:", err);
+            }
+        };
+
+        fetchQs();
+        fetchAs();
+    }, [params.idCuestionario, params.idPregunta]);
+
+    const cargarJson = async () => {
+        const userId = getCurrentUser().id;
+        setLastUpdate(getCurrentDateTime());
+        console.log(lastUpdate);
+        if (respuestaAnt) {
+            try {
+                const res = await fetch(`http://localhost:3000/respuestas/${idResp}`, {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        valor: respuesta,
+                        fechaHora: lastUpdate
+                    })
+                });
+                if (!res.ok) throw new Error("Error al agregar patch");
+                return await res.json();
+            } catch (err) {
+                console.error(err);
+            }
+        } else {
             try {
                 const res = await fetch("http://localhost:3000/respuestas", {
                     method: "POST",
@@ -35,20 +93,27 @@ function PreguntaPage() {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                        id_usuario: "USR-1",
+                        id_usuario: userId,
                         id_pregunta: pregunta.id,
-                        valor: respuesta.current.value
+                        valor: respuesta,
+                        fechaHora: lastUpdate
                     })
                 });
                 if (!res.ok) throw new Error("Error al agregar post");
-                return await res.json();
+                const responseData = await res.json();
+                setIdResp(responseData.id);
+                setRespuestaAnt(true);
+                return responseData;
             } catch (err) {
                 console.error(err);
             }
         }
+    };
 
-        fetchQs();
-    }, [params.idCuestionario, params.idPregunta]);
+    const handleChange = (event) => {
+        console.log("a:", respuestaAnt);
+        setRespuesta(event.target.value);
+    };
 
     // We want to render some loading state if the product is not yet loaded 👇
     if (!pregunta) return <p>Cargando pregunta...</p>;
@@ -58,90 +123,33 @@ function PreguntaPage() {
         <div className="pregunta">
             <h2>{pregunta.nombre}</h2>
             {pregunta.opciones ? (
-                <form className="space-y-2">
+                <form className="respuestas">
                     {pregunta.opciones.map((opcion, idx) => (
                         <label
                             key={idx}
-                            className={`flex items-center space-x-2 p-2 rounded ${isSubmitted
-                                    ? option === correctAnswer
-                                        ? "bg-green-100"
-                                        : selected === option
-                                            ? "bg-red-100"
-                                            : ""
-                                    : ""
-                                }`}
                         >
                             <input
                                 type="radio"
                                 name="choice"
-                                value={option}
-                                checked={selected === option}
+                                value={opcion}
+                                checked={respuesta === opcion}
                                 onChange={handleChange}
-                                disabled={isSubmitted}
                             />
-                            <span>{option}</span>
+                            <span>{opcion}</span>
                         </label>))}
                 </form>
             ) : (
                 <input
                     type="text"
                     placeholder="Ingrese su respuesta"
-                    onChange={respuesta}
+                    value={respuesta}
+                    onChange={handleChange}
                 />
             )}
-            <button onClick={CargarJson}>Guardar respuesta</button>
+            <button onClick={cargarJson}>Guardar respuesta</button>
+            <p>{lastUpdate}</p>
         </div>
     );
 }
 
 export default PreguntaPage;
-
-
-const [selected, setSelected] = useState("");
-const [isSubmitted, setIsSubmitted] = useState(false);
-
-const handleChange = (event) => {
-    setSelected(event.target.value);
-};
-
-const handleSubmit = () => {
-    if (selected) {
-        setIsSubmitted(true);
-    }
-};
-
-return (
-    <div className="p-4 max-w-md border rounded-lg shadow-lg">
-        <h2 className="text-xl font-semibold mb-4">{question}</h2>
-        <form className="space-y-2">
-            {options.map((option, idx) => (
-                <label
-                    key={idx}
-                    className={`flex items-center space-x-2 p-2 rounded ${isSubmitted
-                            ? option === correctAnswer
-                                ? "bg-green-100"
-                                : selected === option
-                                    ? "bg-red-100"
-                                    : ""
-                            : ""
-                        }`}
-                >
-                    <input
-                        type="radio"
-                        name="choice"
-                        value={option}
-                        checked={selected === option}
-                        onChange={handleChange}
-                        disabled={isSubmitted}
-                    />
-                    <span>{option}</span>
-                </label>
-            ))}
-        </form>
-        <button
-            onClick={handleSubmit}
-            disabled={isSubmitted || !selected}
-            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50"
-        >
-            Submit
-        </button>

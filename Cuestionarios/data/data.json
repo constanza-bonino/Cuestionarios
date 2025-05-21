@@ -1,107 +1,174 @@
 {
-    "cuestionarios": [
-        {
-            "id": "CUE-1",
-            "nombre": "Favoritos",
-            "descripcion": "cuentanos lo que prefieres"
-        },
-        {
-            "id": "CUE-2",
-            "nombre": "Películas",
-            "descripcion": "preguntas variadas de las películas más conocidas"
-        },
-        {
-            "id": "CUE-3",
-            "nombre": "Disney",
-            "descripcion": "desmuestra cuanto sabes sobre Disney"
-        }
-    ],
-    "preguntas": [
-        {
-            "id": "PRE-1",
-            "id_cuestionario": "CUE-1",
-            "opciones": ["Choco", "Vaini", "dad"],
-            "nombre": "Helados favoritos?"
-        },
-        {
-            "id": "PRE-2",
-            "id_cuestionario": "CUE-1",
-            "nombre": "Color favoritas?"
-        },
-        {
-            "id": "PRE-3",
-            "id_cuestionario": "CUE-1",
-            "nombre": "Deporte favoritos?"
-        },
-        {
-            "id": "PRE-4",
-            "id_cuestionario": "CUE-2",
-            "tipo": "texto",
-            "nombre": "Última que viste"
-        },
-        {
-            "id": "PRE-5",
-            "id_cuestionario": "CUE-2",
-            "tipo": "texto",
-            "nombre": "Favoríta"
-        },
-        {
-            "id": "PRE-6",
-            "id_cuestionario": "CUE-2",
-            "tipo": "texto",
-            "nombre": "Menos favorita"
-        },
-        {
-            "id": "PRE-7",
-            "id_cuestionario": "CUE-3",
-            "tipo": "texto",
-            "nombre": "Personaje favorito"
-        },
-        {
-            "id": "PRE-8",
-            "id_cuestionario": "CUE-3",
-            "tipo": "texto",
-            "nombre": "Pelicula favorita"
-        },
-        {
-            "id": "PRE-9",
-            "id_cuestionario": "CUE-3",
-            "tipo": "texto",
-            "nombre": "Primeros recuerdos"
-        }
-    ],
-    "usuarios": [
-        {
-            "id": "USR-1",
-            "nombre": "Juan"
-        },
-        {
-            "id": "USR-2",
-            "nombre": "Pedro"
-        },
-        {
-            "id": "USR-3",
-            "nombre": "Jose"
-        }
-    ],
-    "respuestas": [
-        {
-            "id": "RES-1",
-            "id_usuario": "USR-1",
-            "id_pregunta": "PRE-4",
-            "valor": "Up"
-        },
-        {
-            "id": "RES-2",
-            "id_usuario": "USR-2",
-            "id_pregunta": "PRE-4",
-            "valor": "Up"
-        },
-        {
-            "id": "RES-3",
-            "id_usuario": "USR-1",
-            "id_pregunta": "PRE-5",
-            "valor": "Up"
-        }
-    ]
+  "cuestionarios": [
+    {
+      "id": "1",
+      "nombre": "Favoritos",
+      "descripcion": "cuentanos lo que prefieres"
+    },
+    {
+      "id": "2",
+      "nombre": "Películas",
+      "descripcion": "preguntas variadas de las películas más conocidas"
+    },
+    {
+      "id": "3",
+      "nombre": "Disney",
+      "descripcion": "desmuestra cuanto sabes sobre Disney"
+    }
+  ],
+  "preguntas": [
+    {
+      "id": "1",
+      "id_cuestionario": "1",
+      "opciones": [
+        "Choco",
+        "Vaini",
+        "dad"
+      ],
+      "nombre": "Helados favoritos?"
+    },
+    {
+      "id": "2",
+      "id_cuestionario": "1",
+      "nombre": "Color favoritas?"
+    },
+    {
+      "id": "3",
+      "id_cuestionario": "1",
+      "nombre": "Deporte favoritos?"
+    },
+    {
+      "id": "4",
+      "id_cuestionario": "2",
+      "tipo": "texto",
+      "nombre": "Última que viste"
+    },
+    {
+      "id": "5",
+      "id_cuestionario": "2",
+      "tipo": "texto",
+      "nombre": "Favoríta"
+    },
+    {
+      "id": "6",
+      "id_cuestionario": "2",
+      "tipo": "texto",
+      "nombre": "Menos favorita"
+    },
+    {
+      "id": "7",
+      "id_cuestionario": "3",
+      "tipo": "texto",
+      "nombre": "Personaje favorito"
+    },
+    {
+      "id": "8",
+      "id_cuestionario": "3",
+      "tipo": "texto",
+      "nombre": "Pelicula favorita"
+    },
+    {
+      "id": "9",
+      "id_cuestionario": "3",
+      "tipo": "texto",
+      "nombre": "Primeros recuerdos"
+    },
+    {
+      "id": "2cb8",
+      "nombre": "prueba2"
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "1",
+      "nombre": "Juan"
+    },
+    {
+      "id": "2",
+      "nombre": "Pedro"
+    },
+    {
+      "id": "3",
+      "nombre": "Jose"
+    },
+    {
+      "id": "c014",
+      "nombre": "hola"
+    },
+    {
+      "id": "7254",
+      "nombre": "da"
+    },
+    {
+      "id": "d646",
+      "nombre": "cdcdcdcd"
+    },
+    {
+      "id": "73f5",
+      "nombre": "dwdwd"
+    },
+    {
+      "id": "482c",
+      "nombre": "feefefe"
+    },
+    {
+      "id": "44ce",
+      "nombre": "dwdw"
+    },
+    {
+      "id": "e808",
+      "nombre": "rr"
+    },
+    {
+      "id": "9c3e",
+      "nombre": "dw"
+    },
+    {
+      "id": "64b9",
+      "nombre": "dada"
+    },
+    {
+      "id": "0fd4",
+      "nombre": "ccdc"
+    },
+    {
+      "id": "f952",
+      "nombre": "dadwa"
+    },
+    {
+      "id": "e1ef",
+      "nombre": "c"
+    },
+    {
+      "id": "c443",
+      "nombre": "coty"
+    },
+    {
+      "id": "6a51",
+      "nombre": "d"
+    }
+  ],
+  "respuestas": [
+    {
+      "id": "54b1",
+      "id_usuario": "c443",
+      "id_pregunta": "1",
+      "valor": "Choco",
+      "fechaHora": ""
+    },
+    {
+      "id": "c11b",
+      "id_usuario": "c443",
+      "id_pregunta": "2",
+      "valor": "rosado",
+      "fechaHora": ""
+    },
+    {
+      "id": "b1e9",
+      "id_usuario": "c443",
+      "id_pregunta": "2cb8",
+      "valor": "ggy",
+      "fechaHora": ""
+    }
+  ]
 }
