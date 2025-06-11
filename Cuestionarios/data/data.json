@@ -76,6 +76,16 @@
     {
       "id": "2cb8",
       "nombre": "prueba2"
+    },
+    {
+      "id": "9ef9",
+      "id_cuestionario": "1",
+      "opciones": [
+        "hola",
+        "como",
+        "estas"
+      ],
+      "nombre": ""
     }
   ],
   "usuarios": [
@@ -150,6 +160,10 @@
     {
       "id": "3be6",
       "nombre": "seba"
+    },
+    {
+      "id": "3cc7",
+      "nombre": "s"
     }
   ],
   "respuestas": [

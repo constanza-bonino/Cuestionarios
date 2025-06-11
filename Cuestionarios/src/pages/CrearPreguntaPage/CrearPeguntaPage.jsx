@@ -67,8 +67,6 @@ function CrearPreguntaPage() {
                 });
                 if (!res.ok) throw new Error("Error al agregar post");
                 const responseData = await res.json();
-                setIdResp(responseData.id);
-                setRespuestaAnt(true);
                 return responseData;
             } catch (err) {
                 console.error(err);
@@ -87,8 +85,6 @@ function CrearPreguntaPage() {
                 });
                 if (!res.ok) throw new Error("Error al agregar post");
                 const responseData = await res.json();
-                setIdResp(responseData.id);
-                setRespuestaAnt(true);
                 return responseData;
             } catch (err) {
                 console.error(err);

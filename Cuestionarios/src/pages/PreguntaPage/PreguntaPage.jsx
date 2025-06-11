@@ -30,7 +30,6 @@ function PreguntaPage() {
     useEffect(() => {
         // Fetch the product details using async/await
         const fetchQs = async () => {
-            console.log(`http://localhost:3000/preguntas/${params.idPregunta}`);
             try {
                 const urlQ = `http://localhost:3000/preguntas/${params.idPregunta}`;
                 const resQ = await fetch(urlQ);
